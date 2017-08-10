@@ -7,7 +7,7 @@
 
 <br>
 
-<select #select_city title="city" id="city" (change) = "test(select_city.value)" >
+<select #select_city id="city" (change) = "getListings(select_city.value)" >
 
   <option *ngFor="let city of cities" >{{city}}</option>
 
