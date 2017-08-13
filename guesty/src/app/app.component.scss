@@ -1,4 +1,37 @@
 #city{
   font-size: 40px;
-  padding: 5px 30px;
+  padding: 3px 30px;
+  margin-bottom: 50px;
+}
+.logo{
+  background: #dd0031;
+  height: 38px;
+  padding: 12px;
+  margin-bottom: 45px;
+  border-radius: 16px;
+}
+.results{
+    list-style: none;
+    width:900px;
+    margin: auto;
+  h3{
+    margin: 0;
+    font-size: 27px;
+    color: blue;
+  }
+  li a{
+    text-decoration: none;
+    overflow: hidden;
+    margin-bottom: 30px;
+    text-align: left;
+    display: block;
+    span{
+      color: gray;
+    }
+    img{
+      width: 150px;
+      float: left;
+      margin-right: 15px;
+    }
+  }
 }
