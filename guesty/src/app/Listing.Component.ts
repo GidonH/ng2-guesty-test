@@ -12,24 +12,21 @@ export class ListingComponent implements OnInit {
     constructor(private http: HttpClient, private data: DataService) {
     }
 
-    results: string[];
+    reviews: string[];
     title = 'Listing details';
 
-    message:string;
-    public selected = '';
+    selected = '';
 
     ngOnInit() {
         this.data.currentMessage.subscribe(message => this.selected = message);
         console.log(this.selected);
+        this.getReviews();
     }
-    newMessage() {
-        this.data.changeMessage("Hello from Sibling");
-        console.log(this.selected);
+
+    getReviews = function () {
+        this.http.get('https://api.airbnb.com/v2/reviews?client_id=3092nxybyb0otqw18e8nh5nty&role=all&listing_id='+this.selected.listing.id).subscribe(data => {
+            this.reviews = data;
+            console.log(this.reviews);
+        });
     }
-    //getListings = function (e) {
-    //    this.http.get('https://api.airbnb.com/v2/search_results?client_id=3092nxybyb0otqw18e8nh5nty&location='+e+'&_limit=30').subscribe(data => {
-    //        this.results = data.search_results;
-    //
-    //    });
-    //}
 }
