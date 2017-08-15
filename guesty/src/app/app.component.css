@@ -18,15 +18,15 @@
     margin: 0;
     font-size: 27px;
     color: blue; }
-  .results li a {
+  .results li .item {
     text-decoration: none;
     overflow: hidden;
     margin-bottom: 30px;
     text-align: left;
     display: block; }
-    .results li a span {
+    .results li .item span {
       color: gray; }
-    .results li a img {
+    .results li .item img {
       width: 150px;
       float: left;
       margin-right: 15px; }

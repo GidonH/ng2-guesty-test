@@ -1,0 +1,16 @@
+<select #select_city id="city" (change)="getListings(select_city.value)">
+    <option *ngFor="let city of cities">{{city}}</option>
+</select>
+
+<ul class="results">
+    <li *ngFor="let result of results">
+        <a class="item" routerLink="listing" routerLinkActive="active" (click) = getData(result)>
+            <img src="{{result.listing.picture_url}}">
+            <h3>{{result.listing.city}}</h3>
+            <span>Bedrooms: {{result.listing.bedrooms}},</span>
+            <span>Number of people: {{result.listing.person_capacity}},</span>
+            <span>Rating: {{result.listing.star_rating}}</span><br>
+            <span>Price Per Night: {{result.pricing_quote.localized_nightly_price}}</span>
+        </a>
+    </li>
+</ul>
