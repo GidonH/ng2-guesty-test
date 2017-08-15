@@ -1,5 +1,6 @@
-import {Component } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { DataService } from "./data.service";
 
 
 @Component({
@@ -7,10 +8,10 @@ import {HttpClient} from '@angular/common/http';
     templateUrl: './AllListings.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AllListingsComponent {
-    constructor(private http: HttpClient) {
-    }
+export class AllListingsComponent implements OnInit {
+    constructor(private http: HttpClient, private data: DataService) {}
 
+    message:string;
     results: string[];
     public selected = '';
     title = 'ng2 guesty';
@@ -20,8 +21,18 @@ export class AllListingsComponent {
             this.results = data.search_results;
 
         });
-    }
+    };
    getData = function (data) {
         this.selected = data;
+         this.newMessage();
+    };
+
+
+    ngOnInit() {
+        this.data.currentMessage.subscribe(message => this.selected = message);
+    }
+
+    newMessage() {
+        this.data.changeMessage(this.selected);
     }
 }

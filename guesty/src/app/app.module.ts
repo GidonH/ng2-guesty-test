@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {AppComponent} from './app.component';
 import {AllListingsComponent} from './AllListings.component';
 import {ListingComponent} from './Listing.component';
+import { DataService } from "./data.service";
 
 
 const appRoutes: Routes = [
@@ -20,7 +21,7 @@ const appRoutes: Routes = [
         HttpClientModule,
         RouterModule.forRoot(appRoutes, { enableTracing: true }
     )],
-    providers: [],
+    providers: [DataService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
